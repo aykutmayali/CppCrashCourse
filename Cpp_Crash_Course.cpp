@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+    //kind of variables
     int age = 25;
     age = 26;
     float weight = 75;
@@ -14,6 +15,10 @@ int main()
     char gender = 'm';
     string username = "mayali";
     bool isTodaySunny = false;
+    string colors[10] = { "red","green","pink","yellow","blue" };
+    cout << colors[0];
+    cin >> colors[5];
+    cout << colors[5];
 
     std::cout << "Hello World!\n";
     system("pause>0");
