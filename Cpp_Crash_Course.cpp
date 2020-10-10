@@ -16,11 +16,19 @@ int main()
     string username = "mayali";
     bool isTodaySunny = false;
     string colors[10] = { "red","green","pink","yellow","blue" };
-    cout << colors[0];
-    cin >> colors[5];
-    cout << colors[5];
-
-    std::cout << "Hello World!\n";
+ //   cout << colors[0];
+ //   cin >> colors[5];
+ //   cout << colors[5];
+ //   std::cout << "Hello World!\n";
+    if (isTodaySunny) {
+        cout << "go to the park" << endl;
+    }
+    else {
+        cout << "take an umbrella" << endl;
+    }
+    isTodaySunny ? cout << "Go to park" : cout << "Take an umbrella";
+    
+    
     system("pause>0");
 
 }
