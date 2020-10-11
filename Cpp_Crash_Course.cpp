@@ -8,7 +8,8 @@ using namespace std;
 // ------------function declaration
 double sum(double a, double b); // declare before main fuction
 void introduceMe(string name, int age=0);
-void celebrateBirthday(int age);
+//void celebrateBirthday(int age);
+void celebrateBirthday(int* age); // * for taking pointer of the address
 
 int main()
 {
@@ -91,14 +92,29 @@ int main()
 
     // ***************------------------ pointers -----------*************** //
     // pointers stores an address of an variable
-    // using pointers with functions
-    int myAge = 25;
+    
+    /*int myAge = 25;
     cout << "Before Function, age  "<< myAge << endl;
     celebrateBirthday(myAge);
-    cout << "After Function, age  " << myAge << endl;
+    cout << "After Function, age  " << myAge << endl;*/
 
+    // using pointers with functions
+    //int myAge = 25;
+    //cout << "Before Function, age  " << myAge << endl;
+    //celebrateBirthday(&myAge);                          // & gives address of the variable , here pass the address
+    //cout << "After Function, age  " << myAge << endl;
 
-    
+    // using pointers with arrays
+    //int luckyNumbers[5] = { 1,3,5,7,9 };
+    //cout << luckyNumbers << endl;           // this gives the address of the array
+    //cout << &luckyNumbers[0] << endl;       // gives the address of the first element in the array    
+    //cout << luckyNumbers[0] << endl;        // gives the value of the first element in the array 
+
+    //int* luckyPointer = luckyNumbers;       //it points the arrays(luckyNumbers) address
+    //cout << "Pointing to "<< luckyPointer << " address of luckyNumber array , first value: "<< *luckyPointer <<endl; // *(address) == defining int* == address ==&vvariable
+    //luckyPointer++;                         //pointer incremented it shows the second element in the array
+    //cout << "Pointing to " << luckyPointer << " address of luckyNumber array , second value: " << *luckyPointer << endl;
+
     system("pause>0");
 
 }
@@ -113,7 +129,12 @@ void introduceMe(string name, int age) {
     cout << "I am " << age << " years old" << endl;
 }
 
-void celebrateBirthday(int age) {
-    age++;
-    cout << " Celebrated " << age << ". birthday" << endl;
+//void celebrateBirthday(int age) {
+//    age++;
+//    cout << " Celebrated " << age << ". birthday" << endl;
+//}
+
+void celebrateBirthday(int* age) {                              // here received the pointer
+    (*age)++;                                                   // access the value stored in that address
+    cout << " Celebrated " << *age << ". birthday" << endl;     // return the value which is incremented +1
 }
