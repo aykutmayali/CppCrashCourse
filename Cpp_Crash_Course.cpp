@@ -29,7 +29,7 @@ int main()
 
     // ***************------------------ decision & loops -----------*************** //
 
-    // if-else mechanism
+    // ---------if-else mechanism
    /* if (isTodaySunny) {
         cout << "go to the park" << endl;
     }
@@ -51,7 +51,7 @@ int main()
     }*/
     
 
-    // switch case mechanism
+    // ---------switch case mechanism
     //enum EyeColor { Brown, Blue, Green, Gray, Other }; // think them like an integer 0,1,2,3,4
 
     //EyeColor eyeColor = Brown;
@@ -64,6 +64,31 @@ int main()
     //case Other: cout << "1% of  people have other color eyes ";   break;
     //default: cout << "Not a valid eye color";
     //}
+
+    // ---------while loops
+    /*int counter = 1;
+    while (counter <= 10) {
+        cout << counter <<endl;
+        counter++;
+    }
+
+    do {
+        cout << "DoWhile always run first time" << endl;
+        cout << counter << endl;
+        counter++;
+    } while (counter <= 10);*/
+
+    // ------------for loops
+    string animals[5] = { "cat","dog","cow","goat","bee" };
+    int sizeofArray = sizeof(animals);
+    int sizeofElement = sizeof(animals[0]);
+    int lengthofArray = sizeofArray / sizeofElement;       
+    cout << lengthofArray << endl;
+    for (int i = 0; i < lengthofArray; i++)
+    {
+        cout << animals[i] << endl;
+    }
+         
 
 
     
