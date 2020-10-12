@@ -44,9 +44,12 @@ public:             // without this access modifier all properties of a class is
 
 class Car3 {
 private:            
-    string Name;
+    
     string Color;
     double Price;
+    
+protected:                //derived classes can reach this attributes with protected but not from other outer scope
+    string Name;
     bool isBroken;
 public:
     Car3(string name, string color, double price) {         // constructor does not return any value , it must be same name with class
@@ -78,6 +81,25 @@ class FlyingCar : public Car3 {                 //derived class(flying car) take
 public:
     FlyingCar(string name, string color, double price) :Car3(name, color, price) {
 
+    }
+    void move() {
+        if (isBroken)
+            cout << Name << " is broken " << endl;
+        else
+            cout << Name << " is flying " << endl;
+    }
+};
+
+class UnderwaterCar : public Car3 {                 
+public:
+    UnderwaterCar(string name, string color, double price) :Car3(name, color, price) {
+
+    }
+    void move() {
+        if (isBroken)
+            cout << Name << " is broken " << endl;
+        else
+            cout << Name << " is diving " << endl;
     }
 };
 
@@ -213,10 +235,33 @@ ford.move();
 
     // inheritance : passing dna from family
 FlyingCar fly1("Tesla", "White", 500000);
+UnderwaterCar und1("Miralay", "Blue", 500000);
 fly1.getInfo();
+    // polymorphism : same method different functions
+fly1.move();
+und1.getInfo();
+und1.move();
+
+Car3* carPointer1 = &fly1; //pointer assigned address of fly1
+Car3* carPointer2 = &und1;
+
+carPointer1->crashCar();
+carPointer2->crashCar();
 
 
-    system("pause>0");
+ford.move();
+fly1.move();
+und1.move();
+
+carPointer1->repairCar();
+carPointer2->repairCar();
+
+
+ford.move();
+fly1.move();
+und1.move();
+
+system("pause>0");
 
 }
 
