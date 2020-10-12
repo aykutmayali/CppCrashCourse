@@ -5,11 +5,81 @@
 #include <string>
 using namespace std;
 
-// ------------function declaration
+// ------------ function declaration, it should be before main function
 double sum(double a, double b); // declare before main fuction
 void introduceMe(string name, int age=0);
 //void celebrateBirthday(int age);
 void celebrateBirthday(int* age); // * for taking pointer of the address
+
+// ------------ definition of a class, it should be before main function
+class Car {
+public:             // without this access modifier all attributes of a class is private by default
+    string Name;
+    string Color;
+    double Price;
+
+    Car(string name,string color, double price) {         // constructor does not return any value , it must be same name with class
+        Name = name;
+        Color = color;
+        Price = price;
+    }
+};
+
+class Car2 {
+public:             // without this access modifier all properties of a class is private by default
+    string Name;
+    string Color;
+    double Price;   
+
+    Car2(string name, string color, double price) {         // constructor does not return any value , it must be same name with class
+        Name = name;
+        Color = color;
+        Price = price;       
+    }
+
+    void getInfo() {                                        // defining a function for this class
+        cout << " My Car's  Name : " << Name << ", Color : " << Color << ", Price : " << Price << " $" << endl;
+    }
+};
+
+class Car3 {
+private:            
+    string Name;
+    string Color;
+    double Price;
+    bool isBroken;
+public:
+    Car3(string name, string color, double price) {         // constructor does not return any value , it must be same name with class
+        Name = name;
+        Color = color;
+        Price = price;
+        isBroken = false;
+    }
+    void getInfo() {                                        // defining a function for this class
+        cout << " My Car's  Name : " << Name << ", Color : " << Color << ", Price : " << Price << " $" << endl;
+    }
+    void crashCar() {
+        cout << Name << " crashed" << endl;
+        isBroken = true;
+    }
+    void repairCar() {
+        cout << Name << " repaired" << endl;
+        isBroken = false;
+    }
+    void move() {
+        if (isBroken) 
+            cout << Name << " is broken " << endl;
+        else 
+            cout << Name << " is driving " << endl;
+    }
+};
+
+class FlyingCar : public Car3 {                 //derived class(flying car) takes its dna from base class(Car3)
+public:
+    FlyingCar(string name, string color, double price) :Car3(name, color, price) {
+
+    }
+};
 
 int main()
 {
@@ -115,11 +185,42 @@ int main()
     //luckyPointer++;                         //pointer incremented it shows the second element in the array
     //cout << "Pointing to " << luckyPointer << " address of luckyNumber array , second value: " << *luckyPointer << endl;
 
+    // ***************------------------ objects -----------*************** //
+//Car myCar;              // create an object from a class
+//myCar.Name = "Jag-1";   // attributes of this object
+//myCar.Color = "Gray";
+//myCar.Price = 100000;
+//cout << " My Car's  Name : " << myCar.Name << ", Color : " << myCar.Color << ", Price : " << myCar.Price << " $" << endl;
+
+Car myCar("Jag-1", "Gray", 100000);  // with constructor create same object 
+cout << " My Car's  Name : " << myCar.Name << ", Color : " << myCar.Color << ", Price : " << myCar.Price << " $" <<endl;
+Car myCar2("Volvo", "Black", 120000);
+cout << " My Car's  Name : " << myCar2.Name << ", Color : " << myCar2.Color << ", Price : " << myCar2.Price << " $" << endl;
+
+Car2 mini("Mini", "Red", 90000);
+mini.getInfo();               // call a function with ()
+
+    // encapsulation, inheritance, polymorphism (oop)
+    
+    // with encapsulation , private attributes can be reached with functions like get,set 
+
+Car3 ford("Ford", "Blue", 50000);
+ford.move();
+ford.crashCar(); // can change isBroken attribute over this function
+ford.move();
+ford.repairCar();
+ford.move();
+
+    // inheritance : passing dna from family
+FlyingCar fly1("Tesla", "White", 500000);
+fly1.getInfo();
+
+
     system("pause>0");
 
 }
 
-// ------------function definition
+// ------------ function definition
 double sum(double a, double b) {  
     return a + b;
 }
@@ -138,3 +239,4 @@ void celebrateBirthday(int* age) {                              // here received
     (*age)++;                                                   // access the value stored in that address
     cout << " Celebrated " << *age << ". birthday" << endl;     // return the value which is incremented +1
 }
+
