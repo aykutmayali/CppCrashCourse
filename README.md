@@ -15,6 +15,40 @@ Blocks shown with /* ... */
 
 >for Running use F5
 
+kind of variables
+
+decision & loops
+
+switch case mechanism
+
+while loops
+
+for loops
+
+functions
+
+pointers
+
+pointers stores an address of an variable
+
+using pointers with functions
+
+using pointers with arrays
+
+objects 
+
+encapsulation
+
+inheritance
+
+polymorphism
+
+function definition
+
+function declaration
+
+definition of a class
+
 #C++
 #Visual Studio
 
