@@ -18,5 +18,8 @@
     <ClCompile Include="Cpp_Crash_Course.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sameTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
