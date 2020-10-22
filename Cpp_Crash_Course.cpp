@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+using .\sametree
 using namespace std;
 
 // ------------ function declaration, it should be before main function
