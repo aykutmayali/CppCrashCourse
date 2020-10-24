@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-using .\sametree
+//using .\sametree
 using namespace std;
 
 // ------------ function declaration, it should be before main function
@@ -11,6 +11,7 @@ double sum(double a, double b); // declare before main fuction
 void introduceMe(string name, int age=0);
 //void celebrateBirthday(int age);
 void celebrateBirthday(int* age); // * for taking pointer of the address
+void increment(int* v);
 
 // ------------ definition of a class, it should be before main function
 class Car {
@@ -191,17 +192,23 @@ int main()
     celebrateBirthday(myAge);
     cout << "After Function, age  " << myAge << endl;*/
 
-    // using pointers with functions
-    //int myAge = 25;
-    //cout << "Before Function, age  " << myAge << endl;
-    //celebrateBirthday(&myAge);                          // & gives address of the variable , here pass the address
-    //cout << "After Function, age  " << myAge << endl;
+    //**** using pointers with functions
+    int myAge = 25;
+    cout << "Before Function, age  " << myAge << endl;
+    celebrateBirthday(&myAge);                          // & gives address of the variable , here pass the address
+    cout << "After Function, age  " << myAge << endl;
 
-    // using pointers with arrays
-    //int luckyNumbers[5] = { 1,3,5,7,9 };
-    //cout << luckyNumbers << endl;           // this gives the address of the array
-    //cout << &luckyNumbers[0] << endl;       // gives the address of the first element in the array    
-    //cout << luckyNumbers[0] << endl;        // gives the value of the first element in the array 
+    int a;
+    scanf_s("%d", &a);
+    increment(&a);                                       // increment func. takes pointer = &a 
+    printf("%d", a);
+    //return 0;
+
+    //**** using pointers with arrays
+    int luckyNumbers[5] = { 1,3,5,7,9 };
+    cout << luckyNumbers << endl;           // this gives the address of the array
+    cout << &luckyNumbers[0] << endl;       // gives the address of the first element in the array    
+    cout << luckyNumbers[0] << endl;        // gives the value of the first element in the array 
 
     //int* luckyPointer = luckyNumbers;       //it points the arrays(luckyNumbers) address
     //cout << "Pointing to "<< luckyPointer << " address of luckyNumber array , first value: "<< *luckyPointer <<endl; // *(address) == defining int* == address ==&vvariable
@@ -286,3 +293,6 @@ void celebrateBirthday(int* age) {                              // here received
     cout << " Celebrated " << *age << ". birthday" << endl;     // return the value which is incremented +1
 }
 
+void increment(int* v) {                // it takes pointer
+    (*v)++;                             // &*v = value incremented == **v == value
+}
