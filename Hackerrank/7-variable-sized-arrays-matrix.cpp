@@ -32,32 +32,63 @@ Sample Output
 using namespace std;
 
 
+//int main() {
+//    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+//    int q, n, l, m, v, y, z; // q = query , n number of array , l length of array
+//
+//    cin >> q >> n;  // 2 2   
+//
+//    int b[n];
+//
+//    for (int j = 0; j < n; j++) {
+//        cin >> l;     // 3
+//        int a[l];
+//        b[n] = a[l];
+//        for (int i = 0; i < l; i++) {
+//            cin >> m;              //1 5 4  
+//            a[i] = m;
+//        }
+//    }
+//
+//    for (int i = 0; i < q; i++) {
+//        cin >> v;                  //0
+//        y = b[v];
+//        cin >> z;
+//        cout << y;
+//    }
+//
+//
+//
+//    return 0;
+//}
+
+//Sample Input
+//2 2                     // 2 query 2 array , variable for query q , variable for array count n
+//3 1 5 4                 // first array[3] , elements 1 5 4 , [i] variable for array length
+//5 1 2 8 9 3             // second array[5] , elements 1 2 8 9 3 , [i] variable for array length
+//0 1                     // first return , 0. array 1. element = 5
+//1 3                     // second return , 1. array 1. element = 9
+//Sample Output
+//5
+//9
+
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
-    int q, n, l, m, v, y, z; // q = query , n number of array , l length of array
-
-    cin >> q >> n;  // 2 2   
-
-    int b[n];
-
-    for (int j = 0; j < n; j++) {
-        cin >> l;     // 3
-        int a[l];
-        b[n] = a[l];
-        for (int i = 0; i < l; i++) {
-            cin >> m;              //1 5 4  
-            a[i] = m;
+    int n, q, k, i, j; 
+    cin >> n >> q;                          // 2 query 2 array , variable for query q , variable for array count n
+    vector<vector<int> >arr(n);
+    for (i = 0; i < n; ++i) {               // n=2
+        cin >> k;                           // 3 | 5
+        arr[i].resize(k);
+        for (j = 0; j < k; ++j) {
+            cin >> arr[i][j];               //1 5 4 | 1 2 8 9 3
         }
     }
 
-    for (int i = 0; i < q; i++) {
-        cin >> v;                  //0
-        y = b[v];
-        cin >> z;
-        cout << y;
+    for (int l = 0; l < q; ++l) {           // q=2
+        cin >> i >> j;                      // 0 1
+        cout << arr[i][j] << endl;
     }
-
-
 
     return 0;
 }
