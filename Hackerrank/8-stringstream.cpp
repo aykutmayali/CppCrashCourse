@@ -10,13 +10,18 @@ vector<int> parseInts(string str) {
     //rr.resize(str.size());
     for (int i = 0;i < str.size();i++) {
         if (str[i] != ',') {
-            //  rr[i]=str[i];
-            cout << str[i] << "\n";
+            rr.push_back(str[i]);
+            //cout << str[i] << "\n";
         }
         else {
             ch = str[i];
         }
     }
+    cout << rr[0] << "\n";
+    cout << rr[1] << "\n";
+    cout << rr[2] << "\n";
+    cout << rr[3] << "\n";
+    cout << ch << "\n";
     return rr;
 }
 
@@ -27,6 +32,7 @@ int main() {
     for (int i = 0; i < integers.size(); i++) {
         cout << integers[i] << "\n";
     }
+
 
     return 0;
 }
